@@ -1,0 +1,16 @@
+Dim client As New WebClient()
+        Try
+            client.UseDefaultCredentials = True
+            client.DownloadFile(docUrl, fileName)
+            logobj.WriteFunctionEntryLog(fileName & " File Downloaded")
+        Catch ex As System.Net.WebException
+            SendMail(ex.Message, "Planview Automation Job Error Notification")
+            Return False
+        Catch ex As Exception
+            SendMail(ex.Message, "Planview Automation Job Error Notification")
+        Finally
+            If Not client Is Nothing Then
+                client.Dispose()
+            End If
+        End Try
+        
