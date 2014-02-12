@@ -1,0 +1,20 @@
+Imports Microsoft.Office.Interop
+Imports System.Runtime.InteropServices
+
+Dim objExl As New Excel.Application()
+    With objExl
+        .DisplayAlerts = False
+        .Visible = False
+        With .Workbooks.Open(docUrl)
+            .SaveAs(savPath)
+            .Close()
+        End With
+        .Quit()
+    End With
+
+    If objExl IsNot Nothing Then
+        Marshal.ReleaseComObject(objExl)
+        Marshal.ReleaseComObject(objExl)
+        logobj.WriteFunctionEntryLog("Excel COM object released from memory")
+    End If 
+    objExl = Nothing
