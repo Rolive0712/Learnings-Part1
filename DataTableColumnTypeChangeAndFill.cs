@@ -1,6 +1,6 @@
 Dim sqlda As New SqlDataAdapter
         sqlda = New SqlDataAdapter(sqlCmd)
-        sqlda.FillSchema(dt, SchemaType.Source) 'load all columns w/o data
+        sqlda.FillSchema(dt, SchemaType.Source) //load all columns w/o data
 
         dt.Columns("Tier").DataType = Type.GetType("System.String") //change datatype before fill
         sqlda.Fill(dt) //fill data as per schema
