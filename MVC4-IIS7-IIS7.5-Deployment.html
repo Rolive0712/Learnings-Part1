@@ -1,0 +1,5 @@
+When trying to deploy MVC 4 solution on IIS 7 (Win Server 2008), ensure the following steps.
+
+1. Comment out the default "authorization" tag in web.config to deny anonymous users.
+2. Set App Pool to ASP.NET 4.0 Integrated Pipeline.
+3. Set "Anonymous Authentication" as "Enabled" and make all others "disabled".
