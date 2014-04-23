@@ -1,0 +1,92 @@
+<html>
+<body>
+    <table>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                <strong>Build Issues and any other learnings</strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                1. Install-Package DotNetOpenAuth.AspNet <i>(to resolve issues if any w.r.t to DotNetOpenAuth
+                    on building solution)</i>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                2. Install-Package WebGrease latest one <i>(to resolve issues if any w.r.t to @Styles.Render
+                    on BundleConfig.cs file)</i>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                3. Install-Package Unity -Version 2.1.505 ( This latest version of MS Unity has
+                to be installed in case Unity Version (used by Unity.Mvc4) is > 2.1+ in packages.config
+                <u>Note:</u> Unity.Mvc4 has to be installed to get pre-built Bootstapper class for
+                Dependency Injection.
+                <package id="Unity" version="2.1.505.2" targetframework="net40" />
+                <package id="Unity.Mvc4" version="1.2.0.0" targetframework="net40" />
+                )
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                4. Install-Package Microsoft.AspNet.Mvc-Version 4.0.30506 (for correct version of
+                ASP.NET MVC 4 DLL)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                5. Install-Package Microsoft.AspNet.Web.Optimization to resolve issues if any with
+                the dll on build
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                6. Add the 2 lines below in web.config
+                <appsettings> in case MVC routes to Login.aspx by default on running the application in debug mode.
+                    <add key="autoFormsAuthentication" value="false" />
+                    <add key="enableSimpleMembership" value="false" />
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                7. Remember to upgrade all libraries of jquery, knoockout etc after creating a new
+                MVC 3/ 4 Project. using NUGET Package Manager.
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                8. Also upgrade NUGET Package Manager from time to time
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                9. For Knockout Bundling = > debug version to be used. keep name as "knockout-3.0.0.debug.js"
+                as it is with debug suffix. Minified version fails when optimization is enabled.
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                10. VS Intellisense does not work if RequireJS AMD is used.
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                11. If jQuery templates is used with .NET 2.0 UpdatePanel, then add scripts before
+                form close tag and bind all events in "DOM" ready event of jQuery.
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Verdana; font-size: 14px">
+                12. <i><strong>Dapper Oracle Support:</strong></i> Add a custom implementation of
+                Dapper.SqlMapper.IDynamicParameters which supports Oracle.DataAccess.Client.OracleDbType.
+                <br />
+                <b>Petapoco, ServiceStack.OrmLite & FluentData also has Good Oracle Support.</b>
+                <br />
+                ServiceStack.OrmLite.Oracle is for Oracle support with OrmLite.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
