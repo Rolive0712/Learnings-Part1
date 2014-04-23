@@ -8,3 +8,18 @@ When trying to deploy MVC 4 solution on IIS 7 (Win Server 2008), ensure the foll
    the references to Oauth if you check the box next to "ASP .NET Webpages with Razor syntax."
    To fix this, delete the _bin_deployableAssemblies folder, and your application's bin folder and then 
    clean and rebuild your application and it will work again.
+
+6. To resolve versioning issues with OpenAuth and WebGrease, add the settings below in web.config
+<dependentAssembly>
+	<assemblyIdentity name="DotNetOpenAuth.AspNet" publicKeyToken="2780ccd10d57b246" culture="neutral" />
+	<bindingRedirect oldVersion="0.0.0.0-4.3.0.0" newVersion="4.3.0.0" />
+</dependentAssembly>
+<dependentAssembly>
+	<assemblyIdentity name="DotNetOpenAuth.Core" publicKeyToken="2780ccd10d57b246" culture="neutral" />
+	<bindingRedirect oldVersion="0.0.0.0-4.3.0.0" newVersion="4.3.0.0" />
+</dependentAssembly>
+
+<dependentAssembly>
+	<assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+	<bindingRedirect oldVersion="0.0.0.0-1.3.0.0" newVersion="1.3.0.0" />
+</dependentAssembly>
