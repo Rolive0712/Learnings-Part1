@@ -3,3 +3,8 @@ When trying to deploy MVC 4 solution on IIS 7 (Win Server 2008), ensure the foll
 1. Comment out the default "authorization" tag in web.config to deny anonymous users.
 2. Set App Pool to ASP.NET 4.0 Integrated Pipeline.
 3. Set "Anonymous Authentication" as "Enabled" and make all others "disabled".
+4. Set <customErrors mode="Off"/> under <system.web> in web.config to get Exact errors after deployment.
+5. When deploying an MVC application as bin deploy, and selecting Add deployable dependencies VS will add 
+   the references to Oauth if you check the box next to "ASP .NET Webpages with Razor syntax."
+   To fix this, delete the _bin_deployableAssemblies folder, and your application's bin folder and then 
+   clean and rebuild your application and it will work again.
