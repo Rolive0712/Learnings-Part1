@@ -52,8 +52,14 @@
                 Afetr install, it enables Package manager Console and allows downloading packages using
                 Nuget commands (ex: Install-package jquery)
 
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+                15. The wildcard certificate allows IIS to use the same certificate for all of the sites on 
+                a particular port. That takes away the requirement that IIS know which site's certificate to 
+                use in decrypting the data.
+                Secure server bindings help IIS in securing the wildcard certificate, a requirement for setting this up.
+                Thus, it is very possible to have multiple SSL sites on a single server, all sharing the same port.
+                
+                Steps:
+                a) Create wildcard SSL certificate
+                b) Create Secure Server Bindings
+                
+                Link=> http://tech.lanesnotes.com/2008/03/creating-self-signed-wildcard-ssl.html
