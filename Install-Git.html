@@ -1,0 +1,12 @@
+Install Git
+You can download and install Git from http://git-scm.com/download. Once installed you should have access to the git command line tool. The main commands that you will need to use are:
+
+git clone ... : clone a remote repository onto your local machine
+git checkout ... : check out a particular branch or a tagged version of the code to hack on
+Download angular-phonecat
+Clone the angular-phonecat repository located at GitHub by running the following command:
+
+git clone --depth=14 https://github.com/angular/angular-phonecat.git
+This command creates the angular-phonecat directory in your current directory.
+
+The --depth=14 option just tells Git to pull down only the last 14 commits. This makes the download much smaller and faster.
