@@ -1,6 +1,9 @@
+/**** Install following components from Nuget ****/
+
 Install-Package jquery		-- optional
 Install-Package WebGrease 	-- must
 Install-Package CommonServiceLocator -- optional
 Install-Package Unity -Version 2.1.505 -- must to use unity.mvc4 DI container
 Install-Package Unity.Mvc4 -Version 1.2.0 -- must to use unity.mvc4 DI container
 Install-Package Dapper - must to sue dapper
+Add reference to Microsoft.CSharp.dll   -- to resolve ViewBag errors on .cshtml razor files.
