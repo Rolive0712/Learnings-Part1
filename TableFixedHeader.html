@@ -1,0 +1,8 @@
+** First Technique
+function fixHeader() {
+            var t = document.getElementById("table1");
+            var thead = t.getElementsByTagName("thead")[0];
+            var t1 = t.cloneNode(false);
+            t1.appendChild(thead);
+            tblHeader.appendChild(t1);
+        }
