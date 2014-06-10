@@ -71,3 +71,9 @@
                 17.When issuing SSL certificate on IIS web server, ensure to request certificate with the same name as the 
                    website URL.
                   if website URL is https://sdlcdev.nam.nsroot.net, then request SSL cert with name as "sdlcdev.nam.nsroot.net"              
+
+                18. To Deploy ASP.NET 4.0 web application on Windows Server 2008/ R2, follow the steps mentioned below:
+                   * confirm that all dll library is having "target platform" set to "Any CPU" in the project properties
+                   * Map Application pool in IIS 7.0/ 7.5 to "Classic" Mode.
+                   
+                   * Note: check URL below to know why "Integrated" mode does not work on IIS 7/ 7.5 for ASP.NET web application
