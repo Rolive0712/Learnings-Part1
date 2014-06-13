@@ -78,3 +78,13 @@
                    
                    * Note: check URL below to know why "Integrated" mode does not work on IIS 7/ 7.5 for ASP.NET web application
                      http://weblogs.asp.net/reganschroder/iis7-integrated-mode-request-is-not-available-in-this-context-exception-in-application-start.
+
+                19. ** using DurandalJS in ASP.NET MVC 4 with razor in VS 2010, Install Nuget Packages in the order shown below
+                   * Install-Package HotTowel 
+                   * Install-Package AttributeRouting
+                   
+                   Basically, durandal is looking for views in "/App/Views/" so we need to add a route that 
+                   takes all requests for *.html files for that folder and re-route it to a razor view. 
+                   AttributeRouting is the easiest way to perform this.
+                   
+                   Durandal works normally with html files and if Razor is used, we have to use AttributeRouting
