@@ -83,11 +83,13 @@
                    * Install-Package HotTowel 
                    * Install-Package AttributeRouting
                    
-                   Basically, durandal is looking for views in "/App/Views/" so we need to add a route that 
-                   takes all requests for *.html files for that folder and re-route it to a razor view. 
-                   AttributeRouting is the easiest way to perform this.
+                   * Basically, durandal is looking for views in "/App/Views/" so we need to add a route that 
+                     takes all requests for *.html files for that folder and re-route it to a razor view. 
+                     AttributeRouting is the easiest way to perform this.
                    
-                   Durandal works normally with html files and if Razor is used, we have to use AttributeRouting
+                   * Durandal works normally with html files and if we need Razor .cshtml views, we have to use AttributeRouting
+                     But in this case file minification using weyland will not work.
+                     Forget minification if "AttributeRouting" is used with MVC Durandal.
                    
                 20. To use Durandal in VS2012, select empty template and install just one package mentioned below
                    * Install-Package Durandal.StarterKit
