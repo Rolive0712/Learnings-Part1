@@ -106,5 +106,15 @@
                    * Install-Package Microsoft.AspNet.Mvc -Version 4.0.30506
                    * Install-Package Unity.Mvc4 -Version 1.2.0
                 
+                 Imp Points:
+                   * Node.js and NPM installs in Windows 7 Home Premium -- tested
+                   * It does not install on Windows XP.
+                   * Node.js should be successfully installed to install "Weyland" via "install weyland build" command
+                   * Weyland build js file builds successfully after installing "AttributeRouting" (for enabling razor views
+                     in durandal apps)
+                     It also minifies the files but the newly added routes does not show up in the UI.
+                   * Thereby to use weyland's minified build in durandal, it's better to use durandal's html views only.
+                     Do not use MVC razor .cshtml views with durandal if you want to leverage weyland build/minification.
+                
                 21. Use "SlowCheetah" Visual Studio Extension to enable XDT:Transform on app.config files of 
                     Winform applications.
