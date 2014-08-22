@@ -1,1 +1,2 @@
 1. VS2013 express for web can be installed only on Win 2008 server R2. It will not install on Win 2008 Server.
+   VS2013 will install .net 4.5.1 & its sdk
