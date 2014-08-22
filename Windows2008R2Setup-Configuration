@@ -32,5 +32,15 @@
    If yes, then go to IIS and click on the virtual directory within the website & enable windows authentication.
       . Click on VD, and select Authentication in the features view
       . Enable Anonymous & Windows Authentication. Keep all others disabled.
+
+4. After step 1,2,3, browse the URL and site should be up and running.
+
+5. All the steps are required only if the project uses the following:
+  . MVC 4
+  . Web API or any others
+  . .NET framework 4.5.1
+  . Uses windows authentication configured in web.config
+   
+
          
    
