@@ -7,5 +7,30 @@
       Install VS 2013 express for Web on machine.
       
    b. If the machine does not have anything configured in it, do the follwing
-      i. 
+      i. Go to Server Manager & Under Roles, Configure Application Server & WebServer (IIS)
+      ii.Add Roles & Role Services.
+         Under Roles, Select Application Server & Web Server (IIS) & install all components within it.
+         Under Role Services, Select .NET framework 3.5.1 & install all components within it.
+         Under Role Services, Select Web Server (IIS) Support & install all components within it.
+         Under Role Services, Select HTTP Activation & install all components within it.
+         
+         Then Under Web Server (IIS), Install all under Web Server (Installed)
+           . Common HTTP features
+           . Application Development
+           . Health & Diagnostics
+           . Security
+           . Performance
+         
+         Then Under Management Tools, Install all under it
+           . IIS management console
+           . IIS management script and tools
+           . Management service
+           
+           Install all under IIS6 management compatibility
+
+3. After configuring all the above check if site uses windows authentication in it.
+   If yes, then go to IIS and click on the virtual directory within the website & enable windows authentication.
+      . Click on VD, and select Authentication in the features view
+      . Enable Anonymous & Windows Authentication. Keep all others disabled.
+         
    
