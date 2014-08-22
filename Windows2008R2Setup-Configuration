@@ -1,2 +1,11 @@
 1. VS2013 express for web can be installed only on Win 2008 server R2. It will not install on Win 2008 Server.
    VS2013 will install .net 4.5.1 & its sdk
+
+2. If site is developed in MVC 4 web API, .NET framework 4.5.1, then do the follwing pre-requisites on Win 2008 R2 server
+   a. Install .net framework 4.5.1
+       OR
+      Install VS 2013 express for Web on machine.
+      
+   b. If the machine does not have anything configured in it, do the follwing
+      i. 
+   
