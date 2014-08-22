@@ -123,3 +123,13 @@
                     
                 22. jQuery Datatable cannot load 5000 records in IE 8. Chrome does work sometimes.
                     But both browsers become extremely slow after binding 5000 records.
+                
+                23. how-to-check-which-version-of-microsoft-net-framework-is-installed-in-windows/
+                    check site: http://www.askvg.com/how-to-check-which-version-of-microsoft-net-framework-is-installed-in-windows/
+                    
+                    i. Open Command Prompt from Start Menu and execute following command:
+                       wmic /namespace:\\root\cimv2 path win32_product where "name like '%%.NET%%'" get version
+                       You can copy the above mentioned command and then open Command Prompt, right-click on its 
+                       titlebar and select "Edit -> Paste" option. It'll quickly paste the whole command.
+
+                    ii. Wait for a few seconds and it'll show a list of all .NET Framework versions installed in your system.
