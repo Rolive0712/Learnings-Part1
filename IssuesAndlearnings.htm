@@ -136,3 +136,16 @@
                 
                 24. Never UnInstall .net framework (Default installation) from Windows 2008 server/Server R2
                     It uninstalls many things and after installing back lal frameworks, no applications will work
+                    
+                    If you get into this situation, run the below commands in the Server Core’s command prompt window to help you recover:
+
+                     DISM.exe /online /enable-feature /all /featurename:NetFx4
+                     DISM.exe /online /enable-feature /all /featurename:MicrosoftWindowsPowerShell
+
+                     The above commands will re-install .Net 4.0 and PowerShell on the server. Once PowerShell is installed, you can add the Graphical Shell (Windows Explorer) using the following command:
+
+                     Install-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra
+
+                     Once the GUI Shell is installed, you will need to restart the server with the following command:
+
+Restart-Computer
