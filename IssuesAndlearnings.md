@@ -150,3 +150,4 @@
 
                      Restart-Computer
                      Ref link: http://blogs.technet.com/b/askcore/archive/2014/04/24/removing-net-framework-4-5-4-5-1-removes-windows-2012-2012r2-ui-and-other-features.aspx
+                     http://support.microsoft.com/kb/947821
