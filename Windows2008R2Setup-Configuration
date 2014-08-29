@@ -32,6 +32,7 @@
    If yes, then go to IIS and click on the virtual directory within the website & enable windows authentication.
       . Click on VD, and select Authentication in the features view
       . Enable Anonymous & Windows Authentication. Keep all others disabled.
+      . comment out <!-- <authorization><deny users="?" /></authorization>   --> or else pop up will appear to authenticate on first time access
 
 4. After step 1,2,3, browse the URL and site should be up and running.
 
