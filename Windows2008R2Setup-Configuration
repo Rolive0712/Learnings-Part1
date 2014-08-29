@@ -37,7 +37,7 @@
 4. After step 1,2,3, browse the URL and site should be up and running.
 
 5. All the steps are required only if the project uses the following:
-  . MVC 4
+  . MVC / Asp.Net
   . Web API or any others
   . .NET framework 4.5.1
   . Uses windows authentication configured in web.config
