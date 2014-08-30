@@ -45,10 +45,10 @@
 
 6. ******* How to configure Windows Authentication & IIS impersonation on WIndows Account for MVC Intranet app hosted on Windows 2008 R2******
    Note: if .net framework is not installed & role services/ features not configured, perform steps 2a & 2b shown above.
-  . Created new application pool. Right click app pool & go to advanced settings.
+  . Go to IIS 7.5 & Create new application pool. Right click app pool & go to advanced settings.
   . Set app pool identity to custom windows account identity which should have access on the sql server database.
     Provide uer name & password of the custom account, confirm password and click ok
-  . Set it to v4.0 Integrated pipeline
+  . Set it to v4.0 Integrated pipeline.
   . Go to VS 2010/ 2012, Create new MVC 4 Intranet application.
   . Change web.config to setup windows authentication & impersonation as shown below. comment anonymous users.
   
@@ -70,4 +70,23 @@
    . Disable Anonymous authentication, forms authentication & all others.
    . If Anonymous authentication is enabled (which is by default), windows auth will not work.
   
+   . After the IIS part is completed, go to C:\Windows\Microsoft.NET\Framework64\v4.0.30319\
+   . Provide full control access to windows account "EUR\fdcctisqlritdev01" on "Temporary ASP.NET Files" folder.
+   . if access is not provided, then on running application, the below error will be seen
+     error => 
+      The current identity (EUR\fdcctisqlritdev01) does not have write access to 
+     'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files'.
    
+   . After folder access is provided, add 2 lines mentioned below in the layout page of MVC app inside body tag
+     UserIdentity : @HttpContext.Current.User.Identity.Name - 
+     IIS Identity (Win Ident): @System.Security.Principal.WindowsIdentity.GetCurrent().Name
+   
+   . Deploy code back in IIS & run the application
+   . UI should be up and running. 
+   . Press F12. refresh app. Ensure all images, javascript & css files are loading correctly in chrome dev toolbar.
+   
+   Note: At the top of the page in browser, the text below should be displayed
+   . UserIdentity : NAM\rr53665 - IIS Identity (Win Ident): EUR\fdcctisqlritdev01
+   
+   This ensures, IIS is correctly impersonating the user and app is working after authentication user from 
+   Windows active directory as seen from UserIdentity above.
