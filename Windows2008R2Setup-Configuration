@@ -75,6 +75,7 @@
   
    . After the IIS part is completed, go to C:\Windows\Microsoft.NET\Framework64\v4.0.30319\
    . Provide full control access to windows account "EUR\fdcctisqlritdev01" on "Temporary ASP.NET Files" folder.
+   . After access is granted, always do "IISRESET".
    . if access is not provided, then on running application, the below error will be seen
      error => 
       The current identity (EUR\fdcctisqlritdev01) does not have write access to 
