@@ -84,9 +84,13 @@
      UserIdentity : @HttpContext.Current.User.Identity.Name - 
      IIS Identity (Win Ident): @System.Security.Principal.WindowsIdentity.GetCurrent().Name
    
-   . Deploy code back in IIS & run the application
+   . Deploy code back in IIS & execute "aspnet_regiis.exe -i" @ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ to register script maps
+   . For any dll issues that may arise, got to Win + Run, type %TEMP% and delete all from Windows temp folder.
+   . Delete everything from "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files" folder as well.
+   
+   . Run the application
    . UI should be up and running. 
-   . Press F12. refresh app. Ensure all images, javascript & css files are loading correctly in chrome dev toolbar.
+   . Press F12. refresh app. Ensure Ajax calls & all images, javascript & css files are loading correctly in chrome dev toolbar.
    
    Note: At the top of the page in browser, the text below should be displayed
    . UserIdentity : NAM\rr53665 - IIS Identity (Win Ident): EUR\fdcctisqlritdev01
