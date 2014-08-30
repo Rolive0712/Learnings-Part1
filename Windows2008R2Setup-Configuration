@@ -43,5 +43,31 @@
   . Uses windows authentication configured in web.config
    
 
-         
+6. ******* How to configure Windows Authentication & IIS impersonation on WIndows Account for MVC Intranet app hosted on Windows 2008 R2******
+   Note: if .net framework is not installed & role services/ features not configured, perform steps 2a & 2b shown above.
+  . Created new application pool. Right click app pool & go to advanced settings.
+  . Set app pool identity to custom windows account identity which should have access on the sql server database.
+    Provide uer name & password of the custom account, confirm password and click ok
+  . Set it to v4.0 Integrated pipeline
+  . Go to VS 2010/ 2012, Create new MVC 4 Intranet application.
+  . Change web.config to setup windows authentication & impersonation as shown below. comment anonymous users.
+  
+    <customErrors mode="Off"/>
+    <compilation debug="true" targetFramework="4.0" />
+    <authentication mode="Windows" />
+    <!--<authorization>
+      <deny users="?" />
+    </authorization>-->
+    <identity impersonate="true" userName="EUR\fdcctisqlritdev01" password="R3solve1t"/>
+    
+   . Publish code in IIS 7.5 under default website. physical path: C:\inetpub\wwwroot\<ProjectName>
+   . Under website, right click folder & convert to application.
+   . Set it to use the new application pool mentioned in first point above.
+   . Once virtual directory is created, click on it and go to "authentication" under features view.
+   . Enable Windows authentication & ensure "kernel mode authentication" is checked.
+   . Under providers for windows auth, ensure "Negotiate" is at the top.
+   . Enable Aps.net impersonation and set it to specific user "Domain\UserName" as mentioned in web.config above.
+   . Disable Anonymous authentication, forms authentication & all others.
+   . If Anonymous authentication is enabled (which is by default), windows auth will not work.
+  
    
