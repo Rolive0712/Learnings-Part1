@@ -58,7 +58,7 @@
     <!--<authorization>
       <deny users="?" />
     </authorization>-->
-    <identity impersonate="true" userName="EUR\fdcctisqlritdev01" password="R3solve1t"/>
+    <identity impersonate="true" userName="<domain>\<username>" password="<password>"/>
     
    . Change connections string as shown below:
      "Data Source=<ServerName, Port#>;Trusted_Connection=True; User Id=<Domain\\UserName>;Password=<password here>; Database=<databasename here>;Connect Timeout=500"
@@ -74,11 +74,11 @@
    . If Anonymous authentication is enabled (which is by default), windows auth will not work.
   
    . After the IIS part is completed, go to C:\Windows\Microsoft.NET\Framework64\v4.0.30319\
-   . Provide full control access to windows account "EUR\fdcctisqlritdev01" on "Temporary ASP.NET Files" folder.
+   . Provide full control access to windows account "<domain>\<username>" on "Temporary ASP.NET Files" folder.
    . After access is granted, always do "IISRESET".
    . if access is not provided, then on running application, the below error will be seen
      error => 
-      The current identity (EUR\fdcctisqlritdev01) does not have write access to 
+      The current identity (<domain>\<username>) does not have write access to 
      'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files'.
    
    . After folder access is provided, add 2 lines mentioned below in the layout page of MVC app inside body tag
@@ -94,7 +94,7 @@
    . Press F12. refresh app. Ensure Ajax calls & all images, javascript & css files are loading correctly in chrome dev toolbar.
    
    Note: At the top of the page in browser, the text below should be displayed
-   . UserIdentity : NAM\rr53665 - IIS Identity (Win Ident): EUR\fdcctisqlritdev01
+   . UserIdentity : <domain>\<uid> - IIS Identity (Win Ident): <domain>\<username>
    
    This ensures, IIS is correctly impersonating the user and app is working after authentication user from 
    Windows active directory as seen from UserIdentity above.
