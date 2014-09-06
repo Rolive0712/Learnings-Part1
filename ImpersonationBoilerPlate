@@ -119,7 +119,7 @@ namespace <namespace here>
             try
             {
                 
-                    return impersonateValidUser(SrvUID, DocDomain, Common.Encryption.Decrypt(SrvPWSD));
+                    return impersonateValidUser(SrvUID, DocDomain, "<decrytedpassword>");
                     
                
             }
@@ -141,7 +141,7 @@ namespace <namespace here>
                 // impersonate only on specific servers if required
                 if ((sPath.IndexOf("<server name>") > 0))
                 {
-                    return impersonateValidUser(SrvUID, DocDomain, Common.Encryption.Decrypt(SrvPWSD));
+                    return impersonateValidUser(SrvUID, DocDomain, "<decrytedpassword>");
                 }
                 else  // do not apply Impersonate logic 
                 {
