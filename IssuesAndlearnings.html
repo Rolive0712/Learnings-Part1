@@ -180,16 +180,31 @@
                      Manager, then after installation go to the directory where .net framework is installed 
                      and execute command aspnet_regiis -i to reinstall script maps for the framework
                      
-                27. MVC 4 Web API template does not allow data to be returned in "JSON" by default.
-                    To return JSON as json(.....) from controller, use MVC regular controller.
-                    From Dapper ORM, return class or List<T> and convert List<T> to json.
-                    ex: return Json(list, JsonRequestBehavior.AllowGet);
+                27. MVC 4 Web API template does not allow data to be returned in "JSON" by default. It returns xml.
+                    Turn off xml using code below. Apply changes in global.asax file right below line 
+                    "BundleConfig.RegisterBundles(BundleTable.Bundles);"
                     
-                    Using Web API, return IEnumerable<T> from dapper and from the controller.
+                    var config = GlobalConfiguration.Configuration;
+                            var xmlFormatter = config.Formatters
+                              .Where(f =>
+                              {
+                                  return f.SupportedMediaTypes.Any(v => v.MediaType == "text/xml");
+                              })
+                              .FirstOrDefault();
+                
+                            if (xmlFormatter != null)
+                            {
+                                config.Formatters.Remove(xmlFormatter);
+                            }
+                    
+                    After turning off xml formatter, IEnumerable<T> OR List<T> can be easily returned from controller
+                    without converting to JSON.
+                    If MVC razor view is used, then return IEnumerable<T> from dapper and from the controller.
                     Then Bind ienumerable collection in MVC razor view using MVC scaffold templates.
+                    
                     If mvc scaffold is not required, then bind in UI using jQuery Ajax & KnockoutJS or other js libraries.
                     directly iterate through ienumerable collection and use KO applybindings.
-                    no need to convert to json on the controller.
+                    
                      
                 28. Few things about MVC web api:
                    * Called via http verbs within the controller.
