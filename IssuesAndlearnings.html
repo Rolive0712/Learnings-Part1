@@ -180,4 +180,12 @@
                      Manager, then after installation go to the directory where .net framework is installed 
                      and execute command aspnet_regiis -i to reinstall script maps for the framework
                      
+                27. MVC 4 Web API template does not allow data to be returned in "JSON" by default.
+                    To return JSON as json(.....) from controller, use MVC regular controller.
+                    From Dapper ORM, return class or List<T> and convert List<T> to json.
+                    ex: return Json(list, JsonRequestBehavior.AllowGet);
+                    
+                    Using Web API, return IEnumerable<T> from dapper and from the controller.
+                    Then Bind ienumerable collection in MVC razor view using MVC scaffold templates.
+                     
                      
