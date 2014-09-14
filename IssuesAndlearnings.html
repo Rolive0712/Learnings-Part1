@@ -194,14 +194,19 @@
                 28. Few things about MVC web api:
                    * Called via http verbs within the controller.
                    * If multiple Get requests are required in same controller then use "ActionName" attribute
-                     over the method name as shown below.
+                     over the method name as shown below with "HttpGet" attribute.
                      
                      [System.Web.Http.HttpGet]
                      [System.Web.Http.ActionName("GetData")]
                      public List<T> GetData(string Id)
                    * Then if using angularjs, invoke controller & return promise object from service as shown below :
                      
+                     ex=> "api/<contollername>/<actionname>/" + <params>
+                     
                      return $http.get("api/<contollername>/GetData/" + id).then(function (result) {
                                 return result.data;
                       });
+                   * Never mark entity classes with [Serializable] Attribute as  Web API would serialize all the public properties for us.
+                     If marked, then we get junk characters with "__backingfield" in the JSON response and nothing would be bound in UI.
+                     
                      
