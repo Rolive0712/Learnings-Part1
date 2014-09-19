@@ -1,4 +1,4 @@
-** First Technique
+** ***********************************************************First Technique
 function fixHeader() {
             var t = document.getElementById("table1");
             var thead = t.getElementsByTagName("thead")[0];
@@ -8,7 +8,7 @@ function fixHeader() {
         }
 
 
-** second technique
+** ******************************************************************second technique
 
 Use jQuery Plugin => http://www.tablefixedheader.com/download/
 
@@ -21,3 +21,21 @@ Use jQuery Plugin => http://www.tablefixedheader.com/download/
              <tbody></tbody>
             
 </table>
+
+** ******************************************************************third technique
+tbody can be bound anyway (ex: by jQuery Templates)
+=> html
+<div id="divprojects">
+            <table id="tbl" cellpadding="0" cellspacing="0" border="0" style="width: 98%">
+              <tbody id="tblBody">
+              </tbody>
+            </table>
+          </div>
+=> css   
+ div#divprojects th
+{
+    top: expression(document.getElementById("divprojects").scrollTop - 2);
+    left: expression(parentNode.parentNode.parentNode.parentNode.scrollLeft);
+    position: relative;
+    z-index: 20;
+}
