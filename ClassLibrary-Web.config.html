@@ -1,0 +1,6 @@
+1. Never create web.config within a C# class library dll project.
+2. Put all ConfigurationManager.AppSettings["<key>"] code in class library project.
+   Add reference to the .dll in Asp.net Web application or MVC Application.
+   The key settings will be picked up from the web.config of web app or mvc app automatically.
+   
+   [ i.e after referencing the dll, the key settings will pe picked up from web.config of consuming app.]
